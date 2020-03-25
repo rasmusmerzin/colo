@@ -1,0 +1,34 @@
+#!/bin/sh
+#desc: Print terminal 16 colors in a tidy fashion
+
+w='    '
+gap='  '
+ind='   '
+
+ee=$(printf '\033[0m')
+
+e0=$(printf '\033[40m')
+e1=$(printf '\033[41m')
+e2=$(printf '\033[42m')
+e3=$(printf '\033[43m')
+e4=$(printf '\033[44m')
+e5=$(printf '\033[45m')
+e6=$(printf '\033[46m')
+e7=$(printf '\033[47m')
+
+e8=$(printf '\033[100m')
+e9=$(printf '\033[101m')
+e10=$(printf '\033[102m')
+e11=$(printf '\033[103m')
+e12=$(printf '\033[104m')
+e13=$(printf '\033[105m')
+e14=$(printf '\033[106m')
+e15=$(printf '\033[107m')
+
+printf "
+$ind$e8$w$ee $gap$e9$w$ee $gap$e10$w$ee $gap$e11$w$ee $gap$e12$w$ee $gap$e13$w$ee $gap$e14$w$ee $gap$e15$w$ee
+$ind$e8$w$e0 $ee$gap$e9$w$e1 $ee$gap$e10$w$e2 $ee$gap$e11$w$e3 $ee$gap$e12$w$e4 $ee$gap$e13$w$e5 $ee$gap$e14$w$e6 $ee$gap$e15$w$e7 $ee
+$ind$e8$w$e0 $ee$gap$e9$w$e1 $ee$gap$e10$w$e2 $ee$gap$e11$w$e3 $ee$gap$e12$w$e4 $ee$gap$e13$w$e5 $ee$gap$e14$w$e6 $ee$gap$e15$w$e7 $ee
+$ind $e0$w$ee$gap $e1$w$ee$gap $e2$w$ee$gap $e3$w$ee$gap $e4$w$ee$gap $e5$w$ee$gap $e6$w$ee$gap $e7$w$ee
+
+"
