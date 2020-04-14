@@ -1,0 +1,28 @@
+#!/bin/sh
+#desc: Print terminal 16 colors in a tidy fashion
+
+gap=' '
+ind='  '
+
+printf '\n%b\n' "$(
+  printf '%s%s%s' "$ind" 'xx;x' "$gap"
+  for background in $(seq 40 47)
+  do printf '%7d%7d%s' $background $((background+60)) "$gap"
+  done
+  echo
+  for foreground in $(seq 30 37)
+  do
+    for fg_pluss in 0 60
+    do foreground=$((foreground+fg_pluss))
+      for style in 0 1 2
+      do
+        printf '%s%d;%d\33[%dm\33[%dm' "$ind" $foreground $style $foreground $style
+        [ $style -eq 0 ] && style=22
+        for background in $(seq 40 47)
+        do printf '%s\33[%dm Aa \33[3mAa\33[23m \33[49m\33[%dm Aa \33[3mAa\33[23m \33[49m' "$gap" $background $((background+60))
+        done
+        printf '\n\33[0m'
+      done
+    done
+  done
+)"
