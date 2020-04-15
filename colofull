@@ -16,8 +16,9 @@ printf '\n%b\n' "$(
     do foreground=$((foreground+fg_pluss))
       for style in 0 1 2
       do
-        printf '%s%d;%d\33[%dm\33[%dm' "$ind" $foreground $style $foreground $style
-        [ $style -eq 0 ] && style=22
+        st=$style
+        [ $style -eq 0 ] && st=22
+        printf '%s%d;%d\33[%dm\33[%dm' "$ind" $foreground $style $foreground $st
         for background in $(seq 40 47)
         do printf '%s\33[%dm Aa \33[3mAa\33[23m \33[49m\33[%dm Aa \33[3mAa\33[23m \33[49m' "$gap" $background $((background+60))
         done
