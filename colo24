@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for y in $(seq 16)
+do
+  for z in $(seq 0 3)
+  do
+    for x in $(seq 32)
+    do printf '\33[48;2;%d;%d;%dm \33[0m' $((y*16-1)) $((z*85)) $((x*8-1))
+    done
+  done
+  echo
+done

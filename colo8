@@ -1,0 +1,28 @@
+#!/bin/sh
+
+for b in $(seq 0 15)
+do
+  f=$(((1-b/8)*15))
+  printf '\33[48;5;%dm\33[3%dm%9d\33[0m' $b $f $b
+done
+echo
+
+for y in $(seq 0 5)
+do
+  for x in $(seq 0 35)
+  do
+    i=$((y*36+x))
+    b=$((16+i))
+    f=$(((1-x/18)*15))
+    printf '\33[48;5;%dm\33[3%dm%4d\33[0m' $b $f $b
+  done
+  echo
+done
+
+for i in $(seq 0 23)
+do
+  b=$((232+i))
+  f=$(((1-i/12)*15))
+  printf '\33[48;5;%dm\33[3%dm%6d\33[0m' $b $f $b
+done
+echo
